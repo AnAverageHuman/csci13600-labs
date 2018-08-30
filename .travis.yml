@@ -1,0 +1,44 @@
+language: minimal
+group: travis_latest
+os: linux
+
+services:
+  - docker
+
+notifications:
+  email: false
+
+git:
+  depth: 1
+
+cache:
+  apt: true
+
+branches:
+  except:
+    - travis-artifacts
+
+env:
+  matrix:
+    - DIMAGE=gcc_5
+    - DIMAGE=gcc_6
+    - DIMAGE=gcc_7
+    - DIMAGE=gcc_8
+    - DIMAGE=clang_3.8
+    - DIMAGE=clang_4.0
+    - DIMAGE=clang_5.0
+    - DIMAGE=clang_6.0
+    - DIMAGE=clang_7
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: DIMAGE=gcc_5
+    - env: DIMAGE=gcc_6
+    - env: DIMAGE=gcc_8
+    - env: DIMAGE=clang_3.8
+    - env: DIMAGE=clang_4.0
+
+script:
+  - docker run --env-file <( env| cut -f1 -d= ) -v$(pwd):/home/user "anaveragehuman/$DIMAGE" bash -c ".travis/script.sh"
+
