@@ -21,6 +21,7 @@ double east_storage(const std::string &s);
 double min_storage();
 double max_storage();
 std::string compare(std::string date1, std::string date2);
+std::string reverse(std::string date1, std::string date2);
 
 #endif // MAIN_HPP
 
