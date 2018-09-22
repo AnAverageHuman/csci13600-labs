@@ -14,6 +14,7 @@ struct Muhrow {
 extern std::map<std::string, Muhrow> muhdata;
 
 bool read_data();
+double east_storage(const std::string &s);
 
 #endif // MAIN_HPP
 
