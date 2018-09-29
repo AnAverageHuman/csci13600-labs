@@ -5,9 +5,12 @@
 
 const char MUH_CHAR = '*';
 const char MUH_SPACE = ' ';
+const std::string MUH_CHAR_SPACE = "* ";
+const std::string MUH_SPACE_CHAR = " *";
 
 std::string box(int width, int height);
 std::string checkerboard(int width, int height);
+std::string cross(int size);
 
 #endif // MAIN_HPP
 
