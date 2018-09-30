@@ -1,0 +1,16 @@
+To build:
+    $ make -j4
+
+To run:
+    $ make run
+
+To run tests:
+    $ make runtests
+
+Also supports the following commands:
+    all         same as default, or main
+    debug       produces a debug build
+    valgrind    should check for leaks
+    gdb         should start gdb
+    clean       removes build directory and executables
+
