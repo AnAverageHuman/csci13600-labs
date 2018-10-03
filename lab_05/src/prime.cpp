@@ -4,7 +4,7 @@
 #include "main.hpp"
 
 #ifndef KAY
-#define KAY 7
+#define KAY 25
 #endif//KAY
 
 // initialize Mersenne Twister PRNG
