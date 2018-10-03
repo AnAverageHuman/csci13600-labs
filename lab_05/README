@@ -1,0 +1,33 @@
+Notes:
+    The prime number verifier is probabilistic, with higher values of KAY
+    producing a higher likelihood of the number actually being prime.  As such,
+    you might find that false positives occasionally fall through the cracks.
+    Aggressive test cases are included to guard against this, and the value of
+    KAY is relatively high by default.  To forcibly set the value of KAY, set
+    CXXFLAGS=-DKAY=<val> as either an environment variable, or on the same line
+    as the call to make, for instance:
+        $ export CXXFLAGS=-DKAY=5
+        $ make
+
+    or:
+        $ CXXFLAGS=-DKAY=5 make
+
+    or:
+        $ make CXXFLAGS=-DKAY=5
+
+To build:
+    $ make -j4
+
+To run:
+    $ make run
+
+To run tests:
+    $ make -j4 runtests
+
+Also supports the following commands:
+    all         same as default, or main
+    debug       should produce a debug build
+    valgrind    should check for leaks
+    gdb         should start gdb
+    clean       removes build directory and executables
+
