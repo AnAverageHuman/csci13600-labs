@@ -11,6 +11,7 @@ void invert(std::vector<std::vector<int> >& muhimage);
 void invert_half(std::vector<std::vector<int> >& muhimage);
 void box(std::vector<std::vector<int> >& muhimage);
 void frame(std::vector<std::vector<int> >& muhimage);
+void scale(std::vector<std::vector<int> >& muhimage);
 
 #endif // MAIN_HPP
 
