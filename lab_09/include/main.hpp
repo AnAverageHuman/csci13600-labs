@@ -8,6 +8,7 @@ struct Coord3D {
 };
 
 double length(Coord3D *p);
+Coord3D * fartherFromOrigin(Coord3D *p1, Coord3D *p2);
 
 #endif // MAIN_HPP
 
