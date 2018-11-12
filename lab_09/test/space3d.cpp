@@ -13,3 +13,12 @@ TEST_CASE("Distance to origin") {
   REQUIRE(length(&d) == Approx(16.7631));
 }
 
+TEST_CASE("Farther from origin") {
+  REQUIRE(fartherFromOrigin(&a, &b) == &a);
+  REQUIRE(fartherFromOrigin(&a, &c) == &c);
+  REQUIRE(fartherFromOrigin(&a, &d) == &a);
+  REQUIRE(fartherFromOrigin(&b, &c) == &c);
+  REQUIRE(fartherFromOrigin(&b, &d) == &b);
+  REQUIRE(fartherFromOrigin(&c, &d) == &c);
+}
+
