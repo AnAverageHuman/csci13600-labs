@@ -22,3 +22,12 @@ TEST_CASE("Farther from origin") {
   REQUIRE(fartherFromOrigin(&c, &d) == &c);
 }
 
+Coord3D e = {0, 0, 100.0};
+Coord3D vel = {1, -5, 0.2};
+
+TEST_CASE("Movement") {
+  move(&e, &vel, 2.0);
+  REQUIRE(e.x == 2);
+  REQUIRE(e.y == -10);
+  REQUIRE(e.z == 100.4);
+}
