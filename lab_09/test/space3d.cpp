@@ -31,3 +31,15 @@ TEST_CASE("Movement") {
   REQUIRE(e.y == -10);
   REQUIRE(e.z == 100.4);
 }
+
+TEST_CASE("Dynamic") {
+  Coord3D *f = createCoord3D(10, 20, 30);
+  REQUIRE(f->x == 10);
+  REQUIRE(f->y == 20);
+  REQUIRE(f->z == 30);
+  Coord3D *vem = createCoord3D(5.5, -1.4, 7.77);
+  move(f, vem, 10.0);
+  REQUIRE(f->x == Approx(65));
+  REQUIRE(f->y == Approx(6));
+  REQUIRE(f->z == Approx(107.7));
+}
