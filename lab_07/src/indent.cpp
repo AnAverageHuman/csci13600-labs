@@ -46,7 +46,11 @@ std::string reindent(std::string line) {
   std::stringstream ossnek;
   std::string muhstring;
   int lev = 0;
+  bool unaccountedIndent = false;
   while (std::getline(issnek >> std::ws, muhstring)) {
+    if (unaccountedIndent) {
+      lev++;
+    }
     // remove all irrelevant '{' and '}' from the line
     std::string cleanedLine = cleanLine(muhstring);
     lev -= countChar(cleanedLine, MUHCLOS);
@@ -57,6 +61,17 @@ std::string reindent(std::string line) {
     lev += countChar(cleanedLine, MUHOPEN);
     if (issnek.peek() != EOF) {
       ossnek << std::endl;
+    }
+    if (unaccountedIndent) {
+      lev--;
+      unaccountedIndent = false;
+    }
+    if (cleanedLine.find("for") == 0
+        || cleanedLine.find("while") == 0
+        || cleanedLine.find("if") == 0) {
+      if (countChar(cleanedLine, '{') == 0) {
+        unaccountedIndent = true;
+      }
     }
   }
 
