@@ -40,3 +40,13 @@ TEST_CASE("Schedule after") {
   morningafter = scheduleAfter(morningafter, movie1);
   REQUIRE(printTimeSlot(morningafter) == "Back to the Future COMEDY (116 min) [starts at 16:59, ends by 18:55]");
 }
+
+TEST_CASE("Time overlap") {
+  Movie movie1 = {"Back to the Future", COMEDY, 116};
+  TimeSlot morning = {movie1, {9, 15}};
+  TimeSlot morningafter = scheduleAfter(morning, movie1);
+  REQUIRE_FALSE(timeOverlap(morning, morningafter));
+  for (int i = 0; i < 116; i++) {
+    REQUIRE(timeOverlap(morning, TimeSlot{movie1, addMinutes(morning.startTime, i)}));
+  }
+}
