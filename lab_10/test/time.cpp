@@ -11,3 +11,7 @@ TEST_CASE("Minutes until") {
   REQUIRE(minutesUntil(Time{10, 30}, Time{13, 40}) == 190);
   REQUIRE(minutesUntil(Time{13, 40}, Time{10, 30}) == -190);
 }
+
+TEST_CASE("Add minutes") {
+  REQUIRE(addMinutes({8, 10}, 75) == Time{9, 25});
+}

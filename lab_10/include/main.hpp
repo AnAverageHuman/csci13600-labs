@@ -11,6 +11,7 @@ bool operator==(const Time a, const Time b);
 
 int minutesSinceMidnight(Time time);
 int minutesUntil(Time earlier, Time later);
+Time addMinutes(Time time0, int min);
 
 #endif // MAIN_HPP
 
