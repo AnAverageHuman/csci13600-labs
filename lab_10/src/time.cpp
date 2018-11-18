@@ -55,3 +55,7 @@ std::string printTimeSlot(TimeSlot ts) {
   ss << RBRAC;
   return ss.str();
 }
+
+TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie) {
+  return TimeSlot{nextMovie, addMinutes(ts.startTime, ts.movie.duration)};
+}

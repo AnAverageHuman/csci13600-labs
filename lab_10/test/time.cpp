@@ -27,3 +27,16 @@ TEST_CASE("Print time slot") {
   REQUIRE(printTimeSlot(daytime) == "Black Panther ACTION (134 min) [starts at 12:15, ends by 14:29]");
   REQUIRE(printTimeSlot(evening) == "Black Panther ACTION (134 min) [starts at 16:45, ends by 18:59]");
 }
+
+TEST_CASE("Schedule after") {
+  Movie movie1 = {"Back to the Future", COMEDY, 116};
+  TimeSlot morning = {movie1, {9, 15}};
+  TimeSlot morningafter = scheduleAfter(morning, movie1);
+  REQUIRE(printTimeSlot(morningafter) == "Back to the Future COMEDY (116 min) [starts at 11:11, ends by 13:07]");
+  morningafter = scheduleAfter(morningafter, movie1);
+  REQUIRE(printTimeSlot(morningafter) == "Back to the Future COMEDY (116 min) [starts at 13:07, ends by 15:03]");
+  morningafter = scheduleAfter(morningafter, movie1);
+  REQUIRE(printTimeSlot(morningafter) == "Back to the Future COMEDY (116 min) [starts at 15:03, ends by 16:59]");
+  morningafter = scheduleAfter(morningafter, movie1);
+  REQUIRE(printTimeSlot(morningafter) == "Back to the Future COMEDY (116 min) [starts at 16:59, ends by 18:55]");
+}
