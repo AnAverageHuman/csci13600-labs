@@ -59,3 +59,14 @@ std::string printTimeSlot(TimeSlot ts) {
 TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie) {
   return TimeSlot{nextMovie, addMinutes(ts.startTime, ts.movie.duration)};
 }
+
+bool operator<(const Time a, const Time b) {
+  return minutesSinceMidnight(a) < minutesSinceMidnight(b);
+}
+
+// two people could have met if and only if both were alive before either died
+// ! ( b.start > a.end || a.start > b.end )
+bool timeOverlap(TimeSlot ts1, TimeSlot ts2) {
+  return ts1.startTime < addMinutes(ts2.startTime, ts2.movie.duration) &&
+    ts2.startTime < addMinutes(ts1.startTime, ts1.movie.duration);
+}
