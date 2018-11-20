@@ -13,7 +13,7 @@ int main() {
   int third;
   std::cin >> third;
 
-  std::cout << "The smaller of the three is ";
+  std::cout << "The smallest of the three is ";
   std::cout << (first < second ?
       (first < third ? first : third) :
       (second < third ? second : third));
