@@ -11,3 +11,7 @@ void printRange(int left, int right) {
   std::cout << " ";
   printRange(++left, right);
 }
+
+int sumRange(int left, int right) {
+  return left > right ? 0 : left + sumRange(left + 1, right);
+}
