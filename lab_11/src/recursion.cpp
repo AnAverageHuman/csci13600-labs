@@ -13,3 +13,7 @@ void printRange(int left, int right) {
 int sumRange(int left, int right) {
   return left > right ? 0 : left + sumRange(left + 1, right);
 }
+
+int sumArray(int *arr, int size) {
+  return size < 1 ? 0 : *arr + sumArray(arr + 1, --size);
+}
