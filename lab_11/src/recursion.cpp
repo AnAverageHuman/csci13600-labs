@@ -24,3 +24,10 @@ int sumArray(int *arr, int size) {
 bool isAlphanumeric(std::string s) {
   return not s.length() or (isalnum(s[0]) and isAlphanumeric(s.substr(1)));
 }
+
+bool nestedParens(std::string s) {
+  return not s.length() or
+         (s[0] == '(' and s.back() == ')' and
+          (static_cast<void>(s.pop_back()),
+           static_cast<void>(s.erase(s.begin())), nestedParens(s)));
+}

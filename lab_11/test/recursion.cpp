@@ -32,3 +32,13 @@ TEST_CASE("Is Alphanumeric") {
   REQUIRE(isAlphanumeric("Abcd1234xyz"));
   REQUIRE_FALSE(isAlphanumeric("KLMN 8-7-6"));
 }
+
+TEST_CASE("Nested Parentheses") {
+  REQUIRE(nestedParens("((()))"));
+  REQUIRE(nestedParens("()"));
+  REQUIRE(nestedParens(""));
+  REQUIRE_FALSE(nestedParens("((("));
+  REQUIRE_FALSE(nestedParens("(()"));
+  REQUIRE_FALSE(nestedParens(")("));
+  REQUIRE_FALSE(nestedParens("a(b)c"));
+}
