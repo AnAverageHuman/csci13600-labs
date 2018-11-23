@@ -25,3 +25,10 @@ TEST_CASE("Sum Array") {
     }
   }
 }
+
+TEST_CASE("Is Alphanumeric") {
+  REQUIRE(isAlphanumeric(""));
+  REQUIRE(isAlphanumeric("ABCD"));
+  REQUIRE(isAlphanumeric("Abcd1234xyz"));
+  REQUIRE_FALSE(isAlphanumeric("KLMN 8-7-6"));
+}
