@@ -42,3 +42,26 @@ TEST_CASE("Nested Parentheses") {
   REQUIRE_FALSE(nestedParens(")("));
   REQUIRE_FALSE(nestedParens("a(b)c"));
 }
+
+TEST_CASE("Is Divisible") {
+  int prices[] = {10, 15, 12, 18, 19, 17, 13, 35, 33};
+  REQUIRE(divisible(prices, 9));
+  int prices2[] = {1, 1, 1, 2, 1};
+  REQUIRE(divisible(prices2, 5));
+  int prices3[] = {2, 1, 1, 2, 1};
+  REQUIRE_FALSE(divisible(prices3, 5));
+  int prices4[] = {10, 10};
+  REQUIRE(divisible(prices4, 2));
+  int prices5[] = {1, 3, 2, 6};
+  REQUIRE(divisible(prices5, 4));
+  int prices6[] = {1,5,7};
+  REQUIRE_FALSE(divisible(prices6, 3));
+  int prices7[] = {1, 2, 3, 1};
+  REQUIRE_FALSE(divisible(prices7, 4));
+  int prices8[] = {6, 2, 2, 3};
+  REQUIRE_FALSE(divisible(prices8, 4));
+  int prices9[] = {2, 3, 4, 6};
+  REQUIRE_FALSE(divisible(prices9, 4));
+
+
+}
