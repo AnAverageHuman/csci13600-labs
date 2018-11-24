@@ -31,3 +31,9 @@ bool nestedParens(std::string s) {
           (static_cast<void>(s.pop_back()),
            static_cast<void>(s.erase(s.begin())), nestedParens(s)));
 }
+
+bool f(int *p, int s, int t) {
+  return s ? f(p + 1, s - 1, t + *p) or f(p + 1, s - 1, t - *p) : not t;
+}
+
+bool divisible(int *prices, int size) { return f(prices, size, 0); }
