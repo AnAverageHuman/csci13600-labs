@@ -2,6 +2,7 @@
 #define MAIN_HPP
 
 #include <list>
+#include <set>
 #include <string>
 
 class Profile {
@@ -13,7 +14,10 @@ public:
   Profile(std::string u = "", std::string d = "") : username(u), dispname(d){};
   std::string getUsername() const { return username; };
   std::string getFullName() const;
+  bool operator<(const Profile *a) const;
   void setDisplayName(std::string d) { dispname = d; };
+  std::set<Profile *> followers;
+  bool follow(Profile *p) { return followers.insert(p).second; };
 };
 
 class Network {
@@ -25,6 +29,8 @@ private:
 public:
   Network(){};
   bool addUser(std::string u, std::string d);
+  bool follow(std::string u1, std::string u2);
+  void printDot() const;
 };
 
 #endif // MAIN_HPP
